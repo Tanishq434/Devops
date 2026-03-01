@@ -1,7 +1,7 @@
 ## Screenshots
 
 ### Docker Containers Running
-![Docker PS](screenshots/docker-ps.png)
+![Docker PS](screenshots/docker-ls.png)
 
 ### IPvlan Network Inspect
 ![Network Inspect](screenshots/network-inspect.png)
