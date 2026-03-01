@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    build: ./database
+    container_name: postgres_db
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ipvlan_net
+
+  backend:
+    build: ./backend
+  
+    container_name: fastapi_app
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - ipvlan_net
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
+
+networks:
+  ipvlan_net:
+    external: true
+    
