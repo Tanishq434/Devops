@@ -1,0 +1,74 @@
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, ListFlowable
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+
+doc = SimpleDocTemplate("/mnt/data/DevOps_Assignment_Report.pdf")
+styles = getSampleStyleSheet()
+
+content = []
+
+def add_title(text):
+    content.append(Paragraph(f"<b>{text}</b>", styles["Title"]))
+    content.append(Spacer(1, 12))
+
+def add_heading(text):
+    content.append(Paragraph(f"<b>{text}</b>", styles["Heading2"]))
+    content.append(Spacer(1, 8))
+
+def add_body(text):
+    content.append(Paragraph(text, styles["Normal"]))
+    content.append(Spacer(1, 8))
+
+def add_list(items):
+    content.append(ListFlowable([Paragraph(i, styles["Normal"]) for i in items]))
+    content.append(Spacer(1, 10))
+
+# Title
+add_title("Docker Containerization Assignment")
+
+# Overview
+add_heading("Overview")
+add_body("This project demonstrates containerization of a FastAPI web application with PostgreSQL using Docker and Docker Compose. The system uses a multi-container architecture with proper networking and persistent storage.")
+
+# Objectives
+add_heading("Objectives")
+add_list([
+    "Containerize backend and database services",
+    "Use Docker Compose for orchestration",
+    "Implement networking between containers",
+    "Ensure data persistence using volumes",
+    "Optimize Docker images"
+])
+
+# Technologies
+add_heading("Technologies Used")
+add_list([
+    "FastAPI (Python)",
+    "PostgreSQL",
+    "Docker & Docker Compose"
+])
+
+# Architecture
+add_heading("Architecture")
+add_body("Client → FastAPI Backend → PostgreSQL Database")
+
+# Features
+add_heading("Key Features")
+add_list([
+    "Multi-container setup",
+    "Persistent database storage",
+    "REST API implementation",
+    "Container networking"
+])
+
+# Screenshots placeholder
+add_heading("Screenshots")
+add_body("Add your screenshots here (Docker running, API output, database persistence).")
+
+# Conclusion
+add_heading("Conclusion")
+add_body("This project successfully demonstrates containerization and DevOps practices including orchestration, networking, and persistence.")
+
+doc.build(content)
+
+"/mnt/data/DevOps_Assignment_Report.pdf"

@@ -6,52 +6,62 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #eef2f5;
         }
 
         .header {
-            background-color: #0f6c75;
+            background: linear-gradient(135deg, #0f6c75, #0a4f55);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
         }
 
         .container {
             width: 85%;
-            margin: 20px auto;
+            margin: 25px auto;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         h2 {
             color: #0f6c75;
+            border-left: 5px solid #0f6c75;
+            padding-left: 10px;
         }
 
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .box {
-            background: #f1f1f1;
-            padding: 10px;
-            border-radius: 5px;
+            background: #f4f4f4;
+            padding: 12px;
+            border-radius: 6px;
             margin-top: 10px;
             font-family: monospace;
         }
 
         a.button {
             display: inline-block;
-            padding: 8px 12px;
+            padding: 10px 16px;
             background: #0f6c75;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a.button:hover {
+            background: #094c52;
+            transform: scale(1.05);
         }
 
         ul {
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         footer {
@@ -59,20 +69,40 @@
             margin-top: 20px;
             color: gray;
         }
+
+        .info {
+            background: #f9fbfc;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .img-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .img-container img {
+            width: 70%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 
 <body>
 
 <div class="header">
-    <h1>Docker Containerization Assignment</h1>
+    <h1>🚀 Docker Containerization Assignment</h1>
     <p>Containerized Web Application using Docker & PostgreSQL</p>
 </div>
 
 <div class="container">
 
-    <p><b>Name:</b> Tanishq Chauhan</p>
-    <p><b>Branch:</b> B.Tech CSE</p>
+    <div class="info">
+        <p><b>Name:</b> Tanishq Chauhan</p>
+        <p><b>Branch:</b> B.Tech CSE</p>
+    </div>
 
     <!-- Project Components -->
     <div class="section">
@@ -89,8 +119,15 @@
     <!-- GitHub -->
     <div class="section">
         <h2>🔗 GitHub Repository</h2>
-        <a class="button" href="https://github.com/Tanishq434/Devops/tree/a0a20982b43feeb5b716493b0c941def1e3cebb4/containerized-app" target="_blank">
-            View Assignment Files
+
+        <a class="button" href="https://github.com/Tanishq434/Devops/tree/main/Assignment1" target="_blank">
+            📂 View Assignment1 Folder
+        </a>
+
+        <br><br>
+
+        <a class="button" href="https://github.com/Tanishq434/Devops" target="_blank">
+            🌐 View Full Repository
         </a>
     </div>
 
@@ -98,7 +135,6 @@
     <div class="section">
         <h2>📥 Input</h2>
 
-        <p><b>POST Request:</b></p>
         <div class="box">
 POST /users  
 {
@@ -107,31 +143,21 @@ POST /users
 }
         </div>
 
-        <p><b>Docker Command:</b></p>
         <div class="box">
 docker-compose up --build
         </div>
-
-        <p><b>Environment Variables:</b></p>
-        <ul>
-            <li>POSTGRES_DB</li>
-            <li>POSTGRES_USER</li>
-            <li>POSTGRES_PASSWORD</li>
-        </ul>
     </div>
 
     <!-- Output -->
     <div class="section">
         <h2>📤 Output</h2>
 
-        <p><b>API Response:</b></p>
         <div class="box">
 {
   "message": "User created successfully"
 }
         </div>
 
-        <p><b>Fetched Record:</b></p>
         <div class="box">
 {
   "id": 1,
@@ -139,21 +165,67 @@ docker-compose up --build
 }
         </div>
 
-        <p><b>Health Check:</b></p>
         <div class="box">
 OK
-        </div>
-
-        <p><b>Persistence:</b></p>
-        <div class="box">
-Data remains after container restart
         </div>
     </div>
 
     <!-- Screenshots -->
     <div class="section">
         <h2>🖼️ Screenshots</h2>
-        <p>Add images inside your screenshots folder</p>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/docker-ls.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/network-inspect.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/persistence.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot (193).png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005742.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005803.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005817.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005829.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005921.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 005957.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 010008.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 010103.png">
+        </div>
+
+        <div class="img-container">
+            <img src="../Assignment1/screenshots/Screenshot 2026-03-02 010242.png">
+        </div>
+
     </div>
 
     <!-- Conclusion -->
