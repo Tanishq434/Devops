@@ -1,74 +1,79 @@
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, ListFlowable
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 
-doc = SimpleDocTemplate("/mnt/data/DevOps_Assignment_Report.pdf")
+doc = SimpleDocTemplate("/mnt/data/Professional_DevOps_Assignment_Report.pdf")
 styles = getSampleStyleSheet()
+
+title_style = ParagraphStyle('Title', parent=styles['Heading1'], spaceAfter=12)
+heading_style = ParagraphStyle('Heading', parent=styles['Heading2'], spaceAfter=10)
+body_style = styles['Normal']
 
 content = []
 
 def add_title(text):
-    content.append(Paragraph(f"<b>{text}</b>", styles["Title"]))
+    content.append(Paragraph(text, title_style))
     content.append(Spacer(1, 12))
 
 def add_heading(text):
-    content.append(Paragraph(f"<b>{text}</b>", styles["Heading2"]))
+    content.append(Paragraph(text, heading_style))
     content.append(Spacer(1, 8))
 
 def add_body(text):
-    content.append(Paragraph(text, styles["Normal"]))
-    content.append(Spacer(1, 8))
-
-def add_list(items):
-    content.append(ListFlowable([Paragraph(i, styles["Normal"]) for i in items]))
+    content.append(Paragraph(text, body_style))
     content.append(Spacer(1, 10))
 
 # Title
-add_title("Docker Containerization Assignment")
+add_title("Docker Containerization Assignment Report")
 
 # Overview
-add_heading("Overview")
-add_body("This project demonstrates containerization of a FastAPI web application with PostgreSQL using Docker and Docker Compose. The system uses a multi-container architecture with proper networking and persistent storage.")
+add_heading("1. Project Overview")
+add_body("This project focuses on designing, containerizing, and deploying a production-ready web application using Docker and Docker Compose. The system integrates a FastAPI backend with a PostgreSQL database, ensuring scalability, modularity, and efficient service orchestration.")
 
 # Objectives
-add_heading("Objectives")
-add_list([
-    "Containerize backend and database services",
-    "Use Docker Compose for orchestration",
-    "Implement networking between containers",
-    "Ensure data persistence using volumes",
-    "Optimize Docker images"
-])
-
-# Technologies
-add_heading("Technologies Used")
-add_list([
-    "FastAPI (Python)",
-    "PostgreSQL",
-    "Docker & Docker Compose"
-])
+add_heading("2. Objectives")
+add_body("• Containerize a web application using Docker\n"
+         "• Implement multi-container architecture using Docker Compose\n"
+         "• Ensure persistent storage using Docker volumes\n"
+         "• Configure networking between containers\n"
+         "• Optimize image size using best practices")
 
 # Architecture
-add_heading("Architecture")
-add_body("Client → FastAPI Backend → PostgreSQL Database")
+add_heading("3. System Architecture")
+add_body("The architecture follows a client-server model where the client interacts with the FastAPI backend, which in turn communicates with the PostgreSQL database. Docker ensures isolation and portability.")
 
-# Features
-add_heading("Key Features")
-add_list([
-    "Multi-container setup",
-    "Persistent database storage",
-    "REST API implementation",
-    "Container networking"
-])
+# Implementation
+add_heading("4. Implementation Details")
+add_body("The backend service is developed using FastAPI and containerized using Docker. PostgreSQL is used as the database service. Docker Compose is used to orchestrate both services and manage networking and volumes.")
 
-# Screenshots placeholder
-add_heading("Screenshots")
-add_body("Add your screenshots here (Docker running, API output, database persistence).")
+# Docker Compose
+add_heading("5. Docker Compose Configuration")
+add_body("Docker Compose is used to define and manage multiple containers. It ensures that the backend and database services run together with proper dependencies and networking.")
+
+# Networking
+add_heading("6. Networking")
+add_body("Docker networking enables communication between services. Containers are connected through a bridge network, allowing seamless interaction between backend and database.")
+
+# Persistence
+add_heading("7. Data Persistence")
+add_body("Docker volumes are used to ensure that database data persists even after container restarts or recreation.")
+
+# Screenshots
+add_heading("8. Screenshots")
+add_body("Refer to the screenshots folder in the repository for visual proof of implementation including container status, network configuration, and data persistence.")
+
+# Results
+add_heading("9. Results")
+add_body("The application was successfully containerized and deployed. Services communicate effectively, and data persistence is maintained across container restarts.")
 
 # Conclusion
-add_heading("Conclusion")
-add_body("This project successfully demonstrates containerization and DevOps practices including orchestration, networking, and persistence.")
+add_heading("10. Conclusion")
+add_body("This project demonstrates real-world DevOps practices, including containerization, orchestration, and deployment. It highlights the importance of modular architecture and scalability.")
+
+# Author
+add_heading("Author")
+add_body("Tanishq Chauhan\nB.Tech CSE")
 
 doc.build(content)
 
-"/mnt/data/DevOps_Assignment_Report.pdf"
+"/mnt/data/Professional_DevOps_Assignment_Report.pdf"
