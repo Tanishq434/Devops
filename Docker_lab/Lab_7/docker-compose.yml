@@ -1,0 +1,26 @@
+services:
+
+  backend:
+    build: .
+    volumes:
+      - webdata:/app
+    networks:
+      - app_network
+
+  web:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    volumes:
+      - webdata:/usr/share/nginx/html
+    networks:
+      - app_network
+
+volumes:
+  webdata:
+
+networks:
+  app_network:
+    driver: bridge

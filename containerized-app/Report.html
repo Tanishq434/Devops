@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Containerization Assignment</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f5;
+        }
+
+        .header {
+            background-color: #0f6c75;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #0f6c75;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .box {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #0f6c75;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        ul {
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Docker Containerization Assignment</h1>
+    <p>Containerized Web Application using Docker & PostgreSQL</p>
+</div>
+
+<div class="container">
+
+    <p><b>Name:</b> Tanishq Chauhan</p>
+    <p><b>Branch:</b> B.Tech CSE</p>
+
+    <!-- Project Components -->
+    <div class="section">
+        <h2>📌 Project Components</h2>
+        <ul>
+            <li>Backend: FastAPI</li>
+            <li>Database: PostgreSQL</li>
+            <li>Containerization: Docker</li>
+            <li>Orchestration: Docker Compose</li>
+            <li>Networking: Bridge Network</li>
+        </ul>
+    </div>
+
+    <!-- GitHub -->
+    <div class="section">
+        <h2>🔗 GitHub Repository</h2>
+        <a class="button" href="https://github.com/Tanishq434/Devops/tree/a0a20982b43feeb5b716493b0c941def1e3cebb4/containerized-app" target="_blank">
+            View Assignment Files
+        </a>
+    </div>
+
+    <!-- Input -->
+    <div class="section">
+        <h2>📥 Input</h2>
+
+        <p><b>POST Request:</b></p>
+        <div class="box">
+POST /users  
+{
+  "name": "Tanishq",
+  "email": "tanishq@example.com"
+}
+        </div>
+
+        <p><b>Docker Command:</b></p>
+        <div class="box">
+docker-compose up --build
+        </div>
+
+        <p><b>Environment Variables:</b></p>
+        <ul>
+            <li>POSTGRES_DB</li>
+            <li>POSTGRES_USER</li>
+            <li>POSTGRES_PASSWORD</li>
+        </ul>
+    </div>
+
+    <!-- Output -->
+    <div class="section">
+        <h2>📤 Output</h2>
+
+        <p><b>API Response:</b></p>
+        <div class="box">
+{
+  "message": "User created successfully"
+}
+        </div>
+
+        <p><b>Fetched Record:</b></p>
+        <div class="box">
+{
+  "id": 1,
+  "name": "Tanishq"
+}
+        </div>
+
+        <p><b>Health Check:</b></p>
+        <div class="box">
+OK
+        </div>
+
+        <p><b>Persistence:</b></p>
+        <div class="box">
+Data remains after container restart
+        </div>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="section">
+        <h2>🖼️ Screenshots</h2>
+        <p>Add images inside your screenshots folder</p>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="section">
+        <h2>📌 Conclusion</h2>
+        <p>
+            This project demonstrates containerization of a multi-service application using Docker.
+            It includes networking, data persistence, and efficient deployment practices.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Tanishq Chauhan
+</footer>
+
+</body>
+</html>
