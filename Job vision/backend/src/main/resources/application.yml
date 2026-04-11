@@ -1,0 +1,35 @@
+server:
+port: 8080
+
+
+spring:
+datasource:
+url: ${DB_URL}
+username: ${DB_USER}
+password: ${DB_PASS}
+jpa:
+hibernate:
+ddl-auto: update
+show-sql: false
+
+
+jwt:
+secret: ${JWT_SECRET}
+expiration: ${JWT_EXPIRATION}
+
+
+frontend:
+url: ${FRONTEND_URL}
+
+
+management:
+endpoints:
+web:
+exposure:
+include: health,prometheus
+
+
+logging:
+level:
+root: INFO
+com.smartjobsignal: DEBUG
