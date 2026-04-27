@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VocabMaster — Vocabulary Learning System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HOME SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-home" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster <span>vocabulary system</span></div>
+    </header>
+    <div class="screen-body">
+      <section class="home-hero">
+        <h1 class="hero-title">Master Every <em>Word</em>.</h1>
+        <p class="hero-sub">Learn, quiz, track — build vocabulary that sticks.</p>
+      </section>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="stat-words">0</div>
+          <div class="stat-label">Words in Library</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-practiced">0</div>
+          <div class="stat-label">Words Practiced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-streak">0</div>
+          <div class="stat-label">Day Streak 🔥</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-best-streak">0</div>
+          <div class="stat-label">Best Streak</div>
+        </div>
+      </div>
+
+      <div class="home-actions">
+        <button id="btn-start-quiz" class="btn btn-primary btn-full btn-lg">
+          ▶ Start Quiz
+        </button>
+        <button id="btn-progress" class="btn btn-secondary btn-full">
+          📊 My Progress
+        </button>
+        <button id="btn-add-word" class="btn btn-outline btn-full">
+          ✚ Add New Word
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SETUP SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-setup" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster</div>
+      <button id="btn-setup-back" class="header-back-btn">← Back</button>
+    </header>
+    <div class="screen-body">
+      <div class="setup-card">
+        <h2 class="setup-title">Configure Your Quiz</h2>
+        <p class="setup-sub">Choose how you'd like to be tested today.</p>
+
+        <!-- Number of Questions -->
+        <div class="form-group">
+          <label class="form-label" for="q-count">Number of Questions</label>
+          <input
+            type="number"
+            id="q-count"
+            class="form-input"
+            value="10"
+            min="1"
+            max="100"
+            placeholder="e.g. 10"
+          />
+          <p class="form-note" id="max-q-note">Loading word count…</p>
+          <div class="q-count-row">
+            <button class="q-count-btn" data-count="5">5</button>
+            <button class="q-count-btn active" data-count="10">10</button>
+            <button class="q-count-btn" data-count="20">20</button>
+            <button class="q-count-btn" data-count="30">30</button>
+            <button class="q-count-btn" data-count="50">50</button>
+          </div>
+        </div>
+
+        <!-- Quiz Mode -->
+        <div class="form-group">
+          <label class="form-label" for="q-mode">Quiz Mode</label>
+          <select id="q-mode" class="form-select">
+            <option value="mixed">Mixed (all types)</option>
+            <option value="word-to-meaning">Word → Meaning</option>
+            <option value="meaning-to-word">Meaning → Word</option>
+            <option value="synonym">Synonyms</option>
+            <option value="antonym">Antonyms</option>
+            <option value="fill-blank">Fill in the Blank</option>
+          </select>
+        </div>
+
+        <!-- Options toggles -->
+        <div class="form-group">
+          <label class="form-label">Options</label>
+
+          <div class="toggle-row">
+            <label class="toggle-label">
+              Focus on Weak Words
+              <span class="toggle-desc">Prioritize words you've struggled with</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="q-weak" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <label class="toggle-label">
+              Timer Mode
+              <span class="toggle-desc">20 seconds per question</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="q-timer" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <button id="btn-begin-quiz" class="btn btn-primary btn-full btn-lg">
+          Begin Quiz →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       QUIZ SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-quiz" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster</div>
+      <button id="btn-quit-quiz" class="header-back-btn">✕ Quit</button>
+    </header>
+
+    <div class="quiz-meta">
+      <span id="q-progress-text">Question 1 of 10</span>
+      <span id="q-score-display">Score: 0</span>
+    </div>
+    <div class="q-progress-wrap">
+      <div id="q-progress-bar" class="q-progress-bar" style="width:0%"></div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="quiz-card-header">
+        <div id="q-type-badge" class="q-type-badge">Word → Meaning</div>
+        <div id="q-prompt" class="q-prompt">Loading…</div>
+      </div>
+      <div class="quiz-card-body">
+        <div id="q-timer-wrap" class="q-timer-wrap hidden">
+          ⏱ Time left: <span id="q-timer-val">20</span>s
+        </div>
+        <div id="q-options" class="q-options"></div>
+        <div id="q-feedback" class="feedback hidden"></div>
+        <button id="q-next-btn" class="btn btn-primary btn-full" disabled>Next →</button>
+        <p class="kbd-hint">
+          Keyboard: <kbd>A</kbd><kbd>B</kbd><kbd>C</kbd><kbd>D</kbd> to select
+          &nbsp;·&nbsp; <kbd>Enter</kbd> for next
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       RESULTS SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-results" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster</div>
+    </header>
+    <div class="screen-body">
+
+      <div class="results-hero">
+        <div class="score-ring-wrap">
+          <svg class="score-ring" width="140" height="140" viewBox="0 0 140 140">
+            <circle class="ring-bg" cx="70" cy="70" r="54"/>
+            <circle id="score-ring-fill" class="ring-fill great" cx="70" cy="70" r="54"/>
+          </svg>
+          <div class="ring-text">
+            <div id="r-score">—</div>
+            <div id="r-percent">—</div>
+          </div>
+        </div>
+        <div id="r-message" class="result-message">—</div>
+      </div>
+
+      <div class="results-section">
+        <div class="section-title">Wrong Answers</div>
+        <div id="r-wrong-list"></div>
+      </div>
+
+      <div class="results-actions">
+        <button id="btn-retry-wrong" class="btn btn-danger btn-full">
+          🔁 Retry Wrong Answers
+        </button>
+        <button id="btn-new-quiz" class="btn btn-primary btn-full">
+          ▶ New Quiz
+        </button>
+        <button id="btn-results-home" class="btn btn-outline btn-full">
+          🏠 Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ADD WORD SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-add" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster</div>
+      <button id="btn-add-back" class="header-back-btn">← Back</button>
+    </header>
+    <div class="screen-body">
+      <h2 class="page-title">Add a Word</h2>
+      <p class="page-sub">Expand your personal vocabulary library.</p>
+
+      <div class="add-form-card">
+        <div id="add-word-msg" class="add-msg hidden"></div>
+
+        <form id="add-word-form" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label" for="aw-word">Word *</label>
+            <input type="text" id="aw-word" class="form-input" placeholder="e.g. Ephemeral" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aw-meaning">Meaning *</label>
+            <textarea id="aw-meaning" class="form-textarea" placeholder="Lasting for a very short time; transitory" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aw-example">Example Sentence</label>
+            <textarea id="aw-example" class="form-textarea"
+              placeholder="The beauty of cherry blossoms is ephemeral, lasting only a few days."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aw-synonyms">Synonyms</label>
+            <input type="text" id="aw-synonyms" class="form-input" placeholder="fleeting, transient, momentary" />
+            <p class="tag-hint">Separate with commas</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aw-antonyms">Antonyms</label>
+            <input type="text" id="aw-antonyms" class="form-input" placeholder="permanent, lasting, eternal" />
+            <p class="tag-hint">Separate with commas</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aw-difficulty">Difficulty</label>
+            <select id="aw-difficulty" class="form-select">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+
+          <button type="button" id="btn-submit-word" class="btn btn-primary btn-full btn-lg">
+            ✚ Add Word to Library
+          </button>
+        </form>
+      </div>
+
+      <h3 class="section-subtitle">Your Custom Words</h3>
+      <div id="user-word-list"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PROGRESS SCREEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div id="screen-progress" class="screen">
+    <header class="app-header">
+      <div class="app-logo">VocabMaster</div>
+      <button id="btn-prog-back" class="header-back-btn">← Back</button>
+    </header>
+    <div class="screen-body">
+      <h2 class="page-title">My Progress</h2>
+      <p class="page-sub">Track your vocabulary strength over time.</p>
+
+      <div class="prog-stats-row">
+        <div class="prog-stat">
+          <div class="prog-stat-val" id="prog-streak">0</div>
+          <div class="prog-stat-label">Day Streak 🔥</div>
+        </div>
+        <div class="prog-stat">
+          <div class="prog-stat-val" id="prog-best">0</div>
+          <div class="prog-stat-label">Best Streak</div>
+        </div>
+        <div class="prog-stat">
+          <div class="prog-stat-val" id="prog-practiced">0</div>
+          <div class="prog-stat-label">Words Practiced</div>
+        </div>
+        <div class="prog-stat">
+          <div class="prog-stat-val" id="prog-total-w">0</div>
+          <div class="prog-stat-label">Total Words</div>
+        </div>
+      </div>
+
+      <div id="prog-word-list"></div>
+    </div>
+  </div>
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────────── -->
+  <script src="js/dataManager.js"></script>
+  <script src="js/quizGenerator.js"></script>
+  <script src="js/uiController.js"></script>
+  <script>
+    // Boot
+    (async () => {
+      await DataManager.init();
+      UIController.init();
+
+      // Quick-count buttons
+      document.querySelectorAll('.q-count-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.q-count-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('q-count').value = btn.dataset.count;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

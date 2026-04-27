@@ -1,0 +1,302 @@
+[
+  {
+    "id": "w001",
+    "word": "Aberrant",
+    "meaning": "Departing from an accepted standard; deviating from the normal or typical",
+    "synonyms": ["deviant", "anomalous", "atypical", "irregular"],
+    "antonyms": ["normal", "typical", "standard", "conventional"],
+    "example": "The scientist noted the aberrant behavior of the cells under the microscope.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w002",
+    "word": "Benevolent",
+    "meaning": "Well-meaning and kindly; generous and charitable",
+    "synonyms": ["kind", "charitable", "generous", "compassionate"],
+    "antonyms": ["malevolent", "cruel", "unkind", "selfish"],
+    "example": "The benevolent donor gave millions to local schools and hospitals.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w003",
+    "word": "Cacophony",
+    "meaning": "A harsh, discordant mixture of sounds",
+    "synonyms": ["discord", "din", "noise", "clamor"],
+    "antonyms": ["harmony", "melody", "silence", "euphony"],
+    "example": "The cacophony of the construction site made it hard to concentrate.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w004",
+    "word": "Diligent",
+    "meaning": "Having or showing care and conscientiousness in one's work or duties",
+    "synonyms": ["hardworking", "industrious", "assiduous", "tireless"],
+    "antonyms": ["lazy", "idle", "negligent", "careless"],
+    "example": "She was a diligent student who always completed her assignments on time.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w005",
+    "word": "Ephemeral",
+    "meaning": "Lasting for a very short time; transitory",
+    "synonyms": ["fleeting", "transient", "momentary", "brief"],
+    "antonyms": ["permanent", "lasting", "enduring", "eternal"],
+    "example": "The beauty of cherry blossoms is ephemeral, lasting only a few days.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w006",
+    "word": "Frugal",
+    "meaning": "Sparing or economical with regard to money or food; simple and plain",
+    "synonyms": ["thrifty", "economical", "sparing", "prudent"],
+    "antonyms": ["wasteful", "extravagant", "lavish", "profligate"],
+    "example": "Despite his vast wealth, he lived a frugal life in a modest house.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w007",
+    "word": "Gregarious",
+    "meaning": "Fond of company; sociable; living in flocks or colonies",
+    "synonyms": ["sociable", "outgoing", "affable", "convivial"],
+    "antonyms": ["solitary", "reserved", "introverted", "antisocial"],
+    "example": "Being gregarious by nature, she thrived at parties and social gatherings.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w008",
+    "word": "Hapless",
+    "meaning": "Unfortunate and deserving of pity; unlucky",
+    "synonyms": ["unfortunate", "unlucky", "wretched", "ill-fated"],
+    "antonyms": ["fortunate", "lucky", "blessed", "successful"],
+    "example": "The hapless traveler missed his flight and lost his luggage on the same day.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w009",
+    "word": "Impeccable",
+    "meaning": "In accordance with the highest standards; faultless",
+    "synonyms": ["flawless", "perfect", "faultless", "immaculate"],
+    "antonyms": ["flawed", "imperfect", "defective", "faulty"],
+    "example": "Her impeccable sense of style always made her stand out in a crowd.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w010",
+    "word": "Jubilant",
+    "meaning": "Feeling or expressing great happiness and triumph",
+    "synonyms": ["elated", "overjoyed", "triumphant", "exultant"],
+    "antonyms": ["despondent", "miserable", "dejected", "sorrowful"],
+    "example": "The jubilant crowd celebrated their team's championship victory all night.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w011",
+    "word": "Laconic",
+    "meaning": "Using very few words; brief and concise",
+    "synonyms": ["terse", "concise", "brief", "succinct"],
+    "antonyms": ["verbose", "wordy", "loquacious", "garrulous"],
+    "example": "His laconic reply of just 'No' surprised everyone who expected a lengthy explanation.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w012",
+    "word": "Melancholy",
+    "meaning": "A feeling of pensive sadness, typically with no obvious cause",
+    "synonyms": ["sadness", "sorrow", "gloom", "dejection"],
+    "antonyms": ["happiness", "joy", "elation", "cheerfulness"],
+    "example": "A deep melancholy settled over him as autumn leaves began to fall.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w013",
+    "word": "Nonchalant",
+    "meaning": "Feeling or appearing casually calm and relaxed; not displaying anxiety",
+    "synonyms": ["casual", "indifferent", "cool", "unconcerned"],
+    "antonyms": ["anxious", "concerned", "agitated", "worried"],
+    "example": "She appeared nonchalant about the job interview, though she was nervous inside.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w014",
+    "word": "Obstinate",
+    "meaning": "Stubbornly refusing to change one's opinion or chosen course of action",
+    "synonyms": ["stubborn", "headstrong", "tenacious", "inflexible"],
+    "antonyms": ["flexible", "compliant", "yielding", "amenable"],
+    "example": "The obstinate mule refused to move no matter how hard they pushed.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w015",
+    "word": "Pragmatic",
+    "meaning": "Dealing with things sensibly and realistically based on practical considerations",
+    "synonyms": ["practical", "realistic", "sensible", "rational"],
+    "antonyms": ["idealistic", "impractical", "unrealistic", "theoretical"],
+    "example": "She took a pragmatic approach to solving the budget crisis.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w016",
+    "word": "Querulous",
+    "meaning": "Complaining in a petulant or whining manner",
+    "synonyms": ["whining", "petulant", "grumbling", "fretful"],
+    "antonyms": ["content", "pleased", "satisfied", "cheerful"],
+    "example": "The querulous passenger complained about everything from the seat to the food.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w017",
+    "word": "Resilient",
+    "meaning": "Able to withstand or recover quickly from difficult conditions",
+    "synonyms": ["tough", "adaptable", "robust", "flexible"],
+    "antonyms": ["fragile", "vulnerable", "weak", "brittle"],
+    "example": "Despite many setbacks, she remained resilient and kept pursuing her dreams.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w018",
+    "word": "Serendipity",
+    "meaning": "The occurrence of events by chance in a happy or beneficial way",
+    "synonyms": ["fortune", "luck", "chance", "coincidence"],
+    "antonyms": ["misfortune", "design", "plan", "intent"],
+    "example": "It was pure serendipity that they met at the bookstore and fell in love.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w019",
+    "word": "Tenacious",
+    "meaning": "Tending to keep a firm hold; persistent and determined",
+    "synonyms": ["persistent", "determined", "resolute", "steadfast"],
+    "antonyms": ["weak", "irresolute", "yielding", "feeble"],
+    "example": "Her tenacious spirit helped her overcome every obstacle in her path.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w020",
+    "word": "Ubiquitous",
+    "meaning": "Present, appearing, or found everywhere; omnipresent",
+    "synonyms": ["omnipresent", "pervasive", "universal", "prevalent"],
+    "antonyms": ["rare", "scarce", "absent", "uncommon"],
+    "example": "Smartphones have become ubiquitous in modern society.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w021",
+    "word": "Verbose",
+    "meaning": "Using or containing more words than necessary; wordy",
+    "synonyms": ["wordy", "long-winded", "loquacious", "garrulous"],
+    "antonyms": ["concise", "brief", "terse", "laconic"],
+    "example": "His verbose explanation took twenty minutes to convey what could be said in two.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w022",
+    "word": "Whimsical",
+    "meaning": "Playfully quaint or fanciful, especially in an appealing and amusing way",
+    "synonyms": ["fanciful", "playful", "capricious", "quirky"],
+    "antonyms": ["serious", "solemn", "practical", "conventional"],
+    "example": "The children loved the whimsical illustrations in the fairy tale book.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w023",
+    "word": "Xenophobia",
+    "meaning": "Dislike of or prejudice against people from other countries",
+    "synonyms": ["bigotry", "racism", "intolerance", "prejudice"],
+    "antonyms": ["tolerance", "acceptance", "hospitality", "openness"],
+    "example": "The politician's xenophobia was evident in his anti-immigration speeches.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w024",
+    "word": "Zealous",
+    "meaning": "Having or showing great energy or enthusiasm in pursuit of a cause",
+    "synonyms": ["enthusiastic", "passionate", "fervent", "ardent"],
+    "antonyms": ["apathetic", "indifferent", "lukewarm", "dispassionate"],
+    "example": "She was a zealous advocate for environmental protection.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w025",
+    "word": "Ambiguous",
+    "meaning": "Open to more than one interpretation; not having one obvious meaning",
+    "synonyms": ["unclear", "vague", "equivocal", "obscure"],
+    "antonyms": ["clear", "definite", "explicit", "unambiguous"],
+    "example": "The contract's ambiguous wording led to a lengthy legal dispute.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w026",
+    "word": "Candid",
+    "meaning": "Truthful and straightforward; frank",
+    "synonyms": ["frank", "honest", "forthright", "direct"],
+    "antonyms": ["dishonest", "evasive", "deceptive", "indirect"],
+    "example": "I appreciated her candid feedback, even though it was difficult to hear.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w027",
+    "word": "Daunting",
+    "meaning": "Seeming difficult to deal with in anticipation; intimidating",
+    "synonyms": ["intimidating", "formidable", "discouraging", "overwhelming"],
+    "antonyms": ["encouraging", "easy", "manageable", "reassuring"],
+    "example": "Climbing Everest seemed daunting, but she had trained for years for this moment.",
+    "difficulty": "easy",
+    "category": "general"
+  },
+  {
+    "id": "w028",
+    "word": "Eloquent",
+    "meaning": "Fluent or persuasive in speaking or writing",
+    "synonyms": ["articulate", "expressive", "persuasive", "fluent"],
+    "antonyms": ["inarticulate", "inexpressive", "hesitant", "tongue-tied"],
+    "example": "Her eloquent speech moved the entire audience to tears.",
+    "difficulty": "medium",
+    "category": "general"
+  },
+  {
+    "id": "w029",
+    "word": "Fortuitous",
+    "meaning": "Happening by a lucky chance; fortunate",
+    "synonyms": ["fortunate", "lucky", "serendipitous", "providential"],
+    "antonyms": ["unfortunate", "planned", "deliberate", "intentional"],
+    "example": "Their fortuitous meeting at the conference led to a profitable business partnership.",
+    "difficulty": "hard",
+    "category": "general"
+  },
+  {
+    "id": "w030",
+    "word": "Garrulous",
+    "meaning": "Excessively talkative, especially on trivial matters",
+    "synonyms": ["talkative", "loquacious", "verbose", "chatty"],
+    "antonyms": ["taciturn", "reticent", "quiet", "laconic"],
+    "example": "The garrulous taxi driver chatted nonstop for the entire hour-long journey.",
+    "difficulty": "hard",
+    "category": "general"
+  }
+]
