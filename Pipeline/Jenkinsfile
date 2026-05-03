@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USER = tanishq012
+        DOCKER_USER = "tanishq012"
         IMAGE_NAME = "myapp"
     }
 
     stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/your-repo.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
