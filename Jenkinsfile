@@ -1,10 +1,27 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_USER = "tanishq012"
+        IMAGE_NAME = "myapp"
+    }
+
     stages {
-        stage('Test') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Jenkins is working!'
+                script {
+                    docker.build("${DOCKER_USER}/${IMAGE_NAME}:latest")
+                }
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub-credentials') {
+                        docker.image("${DOCKER_USER}/${IMAGE_NAME}:latest").push()
+                    }
+                }
             }
         }
     }
