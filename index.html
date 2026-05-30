@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>VocabMaster</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════════ -->
+<div id="screen-home" class="screen">
+  <header class="app-header">
+    <div class="app-logo">VocabMaster <span>vocabulary system</span></div>
+  </header>
+  <div class="screen-body">
+    <section class="home-hero">
+      <h1 class="hero-title">Master Every <em>Word</em>.</h1>
+      <p class="hero-sub">Learn, quiz, and track — vocabulary that sticks.</p>
+    </section>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-val" id="stat-total">0</div><div class="stat-label">Total Words</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-practiced">0</div><div class="stat-label">Practiced</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-streak">0</div><div class="stat-label">Day Streak 🔥</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-best">0</div><div class="stat-label">Best Streak</div></div>
+    </div>
+    <div class="home-actions">
+      <button class="btn btn-primary btn-full btn-lg" id="home-lib-btn">📚 Library</button>
+      <button class="btn btn-secondary btn-full" id="home-wotd-btn">✦ Word of the Day</button>
+      <button class="btn btn-ghost btn-full" id="home-learn-btn">🧠 Learn New Words</button>
+      <button class="btn btn-outline btn-full" id="home-test-btn">📝 Take a Test</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LIBRARY
+══════════════════════════════════════════════════ -->
+<div id="screen-library" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Library</div>
+    <button class="header-action" id="lib-add-btn">+ Add Word</button>
+  </header>
+  <div class="screen-body">
+
+    <!-- Search bar -->
+    <div class="lib-toolbar">
+      <div class="lib-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="lib-search" placeholder="Search words, meanings, synonyms…"/>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="lib-filters">
+      <button class="lib-filter-btn active" data-filter="all">All</button>
+      <button class="lib-filter-btn" data-filter="builtin">Built-in</button>
+      <button class="lib-filter-btn" data-filter="user">My Words</button>
+      <button class="lib-filter-btn" data-filter="weak">Weak</button>
+      <button class="lib-filter-btn" data-filter="strong">Strong</button>
+    </div>
+
+    <div class="lib-meta-row">
+      <span class="lib-count" id="lib-count">Loading…</span>
+      <span style="font-size:.75rem;color:var(--text3);font-family:'JetBrains Mono',monospace;">▾ tap to expand</span>
+    </div>
+
+    <!-- Word cards rendered here -->
+    <div id="lib-word-list"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     WORD OF THE DAY — setup (choose how many)
+══════════════════════════════════════════════════ -->
+<div id="screen-wotd-setup" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Word of the Day</div>
+  </header>
+  <div class="screen-body">
+    <section class="wotd-setup-hero">
+      <h2 class="page-title">Word of the Day</h2>
+      <p class="page-sub">Pick how many new words to explore today.</p>
+      <p style="font-size:.8rem;color:var(--text3);font-family:'JetBrains Mono',monospace;" id="wotd-avail">0 words in library</p>
+    </section>
+
+    <p style="text-align:center;font-size:.88rem;color:var(--text2);margin-bottom:14px;">How many words today?</p>
+
+    <div class="wotd-count-grid-4">
+      <button class="wotd-count-btn" data-count="1">
+        <span class="wotd-count-num">1</span>
+        <span class="wotd-count-lbl">Single word</span>
+      </button>
+      <button class="wotd-count-btn" data-count="3">
+        <span class="wotd-count-num">3</span>
+        <span class="wotd-count-lbl">Quick trio</span>
+      </button>
+      <button class="wotd-count-btn" data-count="5">
+        <span class="wotd-count-num">5</span>
+        <span class="wotd-count-lbl">Five words</span>
+      </button>
+      <button class="wotd-count-btn" data-count="10">
+        <span class="wotd-count-num">10</span>
+        <span class="wotd-count-lbl">Ten words</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     WORD OF THE DAY — full word cards
+══════════════════════════════════════════════════ -->
+<div id="screen-wotd" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Word of the Day</div>
+    <button class="header-action" id="wotd-back-btn">← Change</button>
+  </header>
+  <div class="screen-body">
+
+    <div class="wotd-page-header">
+      <span class="wotd-page-title">Today's Words</span>
+      <span class="wotd-header-count" id="wotd-header-count">0 words</span>
+    </div>
+
+    <!-- Word cards injected here -->
+    <div id="wotd-cards-container"></div>
+
+    <!-- Test all button (shown when count > 1) -->
+    <div class="wotd-page-actions">
+      <button class="btn btn-primary btn-full btn-lg" id="wotd-test-all-btn" style="display:none">
+        📝 Quiz All Today's Words
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LEARN SETUP
+══════════════════════════════════════════════════ -->
+<div id="screen-learn-setup" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Learn</div>
+  </header>
+  <div class="screen-body">
+    <section class="learn-setup-hero">
+      <h2 class="page-title">Learn New Words</h2>
+      <p class="page-sub">Flashcard-style — flip to reveal, mark if you know it.</p>
+      <p style="font-size:.8rem;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:8px;" id="learn-avail">0 words available</p>
+    </section>
+    <p style="text-align:center;font-size:.88rem;color:var(--text2);margin-bottom:14px;">How many words this session?</p>
+    <div class="learn-count-grid">
+      <button class="learn-count-btn" data-count="5"><span class="learn-count-num">5</span><span class="learn-count-lbl">Quick</span></button>
+      <button class="learn-count-btn" data-count="10"><span class="learn-count-num">10</span><span class="learn-count-lbl">Standard</span></button>
+      <button class="learn-count-btn" data-count="15"><span class="learn-count-num">15</span><span class="learn-count-lbl">Extended</span></button>
+      <button class="learn-count-btn" data-count="20"><span class="learn-count-num">20</span><span class="learn-count-lbl">Deep</span></button>
+      <button class="learn-count-btn" data-count="30"><span class="learn-count-num">30</span><span class="learn-count-lbl">Intensive</span></button>
+      <button class="learn-count-btn" data-count="50"><span class="learn-count-num">50</span><span class="learn-count-lbl">Marathon</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LEARN (flashcard)
+══════════════════════════════════════════════════ -->
+<div id="screen-learn" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Learning</div>
+    <button class="header-action" id="learn-quit-btn">✕ Quit</button>
+  </header>
+  <div class="learn-meta-bar">
+    <span id="learn-prog-text">1 / 10</span>
+    <span style="font-size:.72rem;opacity:.55;">tap card to flip</span>
+  </div>
+  <div class="learn-prog-bar-wrap">
+    <div class="learn-prog-bar" id="learn-prog-bar" style="width:0%"></div>
+  </div>
+  <div class="learn-card-wrap">
+    <div class="learn-card" id="learn-card">
+      <div class="lcard-front">
+        <div class="lcard-word" id="lcard-word">Word</div>
+        <span class="lcard-diff medium" id="lcard-diff">medium</span>
+        <p class="lcard-hint">Tap to reveal meaning →</p>
+      </div>
+      <div class="lcard-back">
+        <p class="lcard-meaning" id="lcard-meaning">—</p>
+        <p class="lcard-example" id="lcard-example"></p>
+        <div class="lcard-row">
+          <div class="lcard-row-label">Synonyms</div>
+          <div id="lcard-syns" style="display:flex;flex-wrap:wrap;gap:5px;"></div>
+        </div>
+        <div class="lcard-row">
+          <div class="lcard-row-label">Antonyms</div>
+          <div id="lcard-ants" style="display:flex;flex-wrap:wrap;gap:5px;"></div>
+        </div>
+        <div class="lcard-learned-badge" id="lcard-learned-badge"></div>
+      </div>
+    </div>
+  </div>
+  <div class="learn-actions">
+    <button class="btn btn-outline" id="learn-skip-btn" style="display:none">✕ Not Yet</button>
+    <button class="btn btn-primary" id="learn-flip-btn">Reveal Meaning</button>
+    <button class="btn btn-ghost" id="learn-got-btn" style="display:none">✓ Got It</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LEARN DONE
+══════════════════════════════════════════════════ -->
+<div id="screen-learn-done" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Session Complete</div>
+  </header>
+  <div class="screen-body">
+    <div class="learn-done-hero">
+      <div class="learn-done-icon">🎉</div>
+      <h2 class="learn-done-title">Session Complete!</h2>
+      <p class="learn-done-sub">You reviewed <strong id="learn-done-count">0</strong> words.</p>
+    </div>
+    <div class="learn-done-stats">
+      <div class="stat-card"><div class="stat-val" id="learn-done-total">0</div><div class="stat-label">Total Learned</div></div>
+      <div class="stat-card"><div class="stat-val" id="learn-streak-val">—</div><div class="stat-label">Day Streak 🔥</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px;">
+      <button class="btn btn-primary btn-full btn-lg" id="learn-done-test-btn">📝 Test What I Learned</button>
+      <button class="btn btn-outline btn-full" id="learn-done-home-btn">🏠 Home</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     TEST SETUP
+══════════════════════════════════════════════════ -->
+<div id="screen-test-setup" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Test</div>
+  </header>
+  <div class="screen-body">
+    <div class="setup-card">
+      <h2 class="setup-title">Configure Your Quiz</h2>
+      <p class="setup-sub">Choose your challenge for today.</p>
+      <div class="form-group">
+        <label class="form-label">Questions <span id="test-avail-note"></span></label>
+        <input type="number" id="test-count" class="form-input" value="10" min="1" max="100"/>
+        <div class="count-quick-row">
+          <button class="test-count-btn" data-count="5">5</button>
+          <button class="test-count-btn active" data-count="10">10</button>
+          <button class="test-count-btn" data-count="20">20</button>
+          <button class="test-count-btn" data-count="30">30</button>
+          <button class="test-count-btn" data-count="50">50</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mode</label>
+        <select id="test-mode" class="form-select">
+          <option value="mixed">Mixed (all types)</option>
+          <option value="word-to-meaning">Word → Meaning</option>
+          <option value="meaning-to-word">Meaning → Word</option>
+          <option value="synonym">Synonyms</option>
+          <option value="antonym">Antonyms</option>
+          <option value="fill-blank">Fill in the Blank</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Options</label>
+        <div class="toggle-row">
+          <label class="toggle-label-text">Focus Weak Words<span class="toggle-desc">Prioritise words you struggle with</span></label>
+          <label class="toggle"><input type="checkbox" id="test-weak"/><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <label class="toggle-label-text">Timer Mode<span class="toggle-desc">20 seconds per question</span></label>
+          <label class="toggle"><input type="checkbox" id="test-timer"/><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full btn-lg" id="test-start-btn">Begin Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUIZ (test screen)
+══════════════════════════════════════════════════ -->
+<div id="screen-test" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Quiz</div>
+    <button class="header-action" id="q-quit-btn">✕ Quit</button>
+  </header>
+  <div class="quiz-meta">
+    <span id="q-prog-text">1 / 10</span>
+    <span id="q-score-disp">Score: 0</span>
+  </div>
+  <div class="q-prog-wrap">
+    <div class="q-prog-bar" id="q-prog-bar" style="width:0%"></div>
+  </div>
+  <div class="quiz-card">
+    <div class="quiz-card-header">
+      <div class="q-type-badge" id="q-type-badge">Word → Meaning</div>
+      <div class="q-prompt" id="q-prompt">Loading…</div>
+    </div>
+    <div class="quiz-card-body">
+      <div id="q-timer-wrap" class="q-timer-wrap hidden">⏱ <span id="q-timer-val">20</span>s</div>
+      <div id="q-options" class="q-options"></div>
+      <div id="q-feedback" class="q-feedback hidden"></div>
+      <button id="q-next-btn" class="btn btn-primary btn-full" disabled>Next →</button>
+      <p class="kbd-hint"><kbd>A</kbd><kbd>B</kbd><kbd>C</kbd><kbd>D</kbd> to select &nbsp;·&nbsp; <kbd>Enter</kbd> for next</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     RESULTS
+══════════════════════════════════════════════════ -->
+<div id="screen-results" class="screen">
+  <header class="app-header">
+    <div class="app-logo">Results</div>
+  </header>
+  <div class="screen-body">
+    <div class="results-hero">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" width="130" height="130" viewBox="0 0 130 130">
+          <circle class="ring-bg" cx="65" cy="65" r="54"/>
+          <circle id="score-ring-fill" class="ring-fill great" cx="65" cy="65" r="54"/>
+        </svg>
+        <div class="ring-text">
+          <div id="r-score">—</div>
+          <div id="r-percent">—</div>
+        </div>
+      </div>
+      <div id="r-message" class="r-message">—</div>
+    </div>
+    <div class="results-section">
+      <div class="section-title">Wrong Answers</div>
+      <div id="r-wrong-list"></div>
+    </div>
+    <div class="results-actions">
+      <button id="r-retry-btn" class="btn btn-danger btn-full">🔁 Retry Wrong Answers</button>
+      <button id="r-new-btn" class="btn btn-primary btn-full">▶ New Quiz</button>
+      <button id="r-home-btn" class="btn btn-outline btn-full">🏠 Home</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     ADD / EDIT WORD MODAL
+══════════════════════════════════════════════════ -->
+<div id="word-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title-text" id="modal-title">Add New Word</span>
+      <button class="modal-close" id="modal-close-btn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="modal-msg" class="modal-msg hidden"></div>
+      <div class="form-group">
+        <label class="form-label" for="mw-word">Word <span>*required</span></label>
+        <input type="text" id="mw-word" class="form-input" placeholder="e.g. Ephemeral"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mw-meaning">Meaning <span>*required</span></label>
+        <textarea id="mw-meaning" class="form-textarea" placeholder="Lasting for a very short time; transitory"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mw-synonyms">Synonyms <span>optional — comma separated</span></label>
+        <input type="text" id="mw-synonyms" class="form-input" placeholder="fleeting, transient, momentary"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mw-antonyms">Antonyms <span>optional — comma separated</span></label>
+        <input type="text" id="mw-antonyms" class="form-input" placeholder="permanent, lasting, eternal"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mw-example">Example Sentence <span>optional</span></label>
+        <textarea id="mw-example" class="form-textarea" placeholder="The beauty of cherry blossoms is ephemeral…"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mw-difficulty">Difficulty</label>
+        <select id="mw-difficulty" class="form-select">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="modal-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="modal-save-btn" style="flex:1">Add Word</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BOTTOM NAV
+══════════════════════════════════════════════════ -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="nav-home">
+    <span class="nav-icon">🏠</span><span>Home</span>
+  </button>
+  <button class="nav-btn" id="nav-library">
+    <span class="nav-icon">📚</span><span>Library</span>
+  </button>
+  <button class="nav-btn" id="nav-wotd">
+    <span class="nav-icon">✦</span><span>Word</span>
+  </button>
+  <button class="nav-btn" id="nav-learn">
+    <span class="nav-icon">🧠</span><span>Learn</span>
+  </button>
+  <button class="nav-btn" id="nav-test">
+    <span class="nav-icon">📝</span><span>Test</span>
+  </button>
+</nav>
+
+<!-- ── Scripts ────────────────────────────────────── -->
+<script src="js/dataManager.js"></script>
+<script src="js/quizGenerator.js"></script>
+<script src="js/uiController.js"></script>
+<script>
+(async () => {
+  await DataManager.init();
+  UI.init();
+
+  // Home quick-buttons
+  document.getElementById('home-lib-btn').addEventListener('click',  () => { UI.renderLibrary(); });
+  document.getElementById('home-wotd-btn').addEventListener('click', () => { document.getElementById('nav-wotd').click(); });
+  document.getElementById('home-learn-btn').addEventListener('click',() => { document.getElementById('nav-learn').click(); });
+  document.getElementById('home-test-btn').addEventListener('click', () => { document.getElementById('nav-test').click(); });
+
+  // WOTD back button
+  document.getElementById('wotd-back-btn').addEventListener('click', () => {
+    document.getElementById('nav-wotd').click();
+  });
+
+  // Learn done streak display
+  document.getElementById('learn-done-home-btn').addEventListener('click', () => {
+    const s = DataManager.getStreak();
+    const el = document.getElementById('learn-streak-val');
+    if (el) el.textContent = s.current;
+  }, true);
+})();
+</script>
+</body>
+</html>
